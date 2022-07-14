@@ -1,1 +1,1 @@
-# Practicas sobre lo aprendido.
+# Practicas utilizando eureka, gateway y circuit breaker.
