@@ -1,6 +1,6 @@
 spring:
   application:
-    name: loanservice
+    name: gateway-service
   cloud:
     config:
       enabled: true
