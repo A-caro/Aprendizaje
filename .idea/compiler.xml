@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="PatagoniaTest" />
+        <module name="config-service" />
+        <module name="eureka-server" />
+        <module name="loan-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config-service" target="11" />
+      <module name="eureka-server" target="11" />
+      <module name="loan-service" target="11" />
+      <module name="loanservice" target="11" />
+      <module name="PatagoniaTest" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PatagoniaTest" options="-parameters" />
+      <module name="config-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="loan-service" options="-parameters" />
+      <module name="loanservice" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "82c5a1f0-3868-4a10-9ed3-bd8a521880ae",
+		"name": "ItPatagoniaTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19254567"
+	},
+	"item": [
+		{
+			"name": "clientById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/clients/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de Clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/clients"
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{ \"id\": \"1\",\r\n    \"fullName\" : \"Carlos Benitez\",\r\n    \"income\" : \"27\" \r\n \r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/clients/addClient"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteClient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/clients/deleteClient/1"
+			},
+			"response": []
+		},
+		{
+			"name": "updateClient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": \"1\",\r\n    \"fullName\" : \"Carlos Benitez\",\r\n    \"income\" : \"27\" \r\n \r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/clients/update/1"
+			},
+			"response": []
+		}
+	]
+}
