@@ -3,7 +3,9 @@ package com.example.patagoniatest.controller;
 import com.example.patagoniatest.entity.Client;
 import com.example.patagoniatest.model.Loan;
 import com.example.patagoniatest.service.ClientService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +28,7 @@ public class ClientController {
         return clientService.getClients();
     }
 
-    @PostMapping("/addClient")
+    @PostMapping
     public Client addClient(@RequestBody Client client){
         return clientService.addClient(client);
     }
@@ -47,12 +49,16 @@ public class ClientController {
         clientService.updateCliente(id, client);
     }
 
+    @CircuitBreaker(name = "clientCB", fallbackMethod = "fallBackSaveLoan")
     @PostMapping("/saveloan/{clientId}")
     public ResponseEntity<Loan> saveLoan(@PathVariable("clientId") Long clientId, @RequestBody Loan loan) {
         Loan loanNew = clientService.saveLoan(clientId, loan);
         return ResponseEntity.ok(loan);
     }
 
+    private ResponseEntity<Loan> fallBackSaveLoan(@PathVariable("clientId") Long clientId, @RequestBody Loan loan, RuntimeException exception){
+        return new ResponseEntity("El client " + clientId + "  no puede recibir un prestamo()CB",  HttpStatus.OK);
+    }
 
 
 
