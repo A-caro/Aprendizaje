@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/patagoniaTest-main/PatagoniaTest.iml" filepath="$PROJECT_DIR$/patagoniaTest-main/PatagoniaTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Student/PatagoniaTest.iml" filepath="$PROJECT_DIR$/Student/PatagoniaTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-service/config-service.iml" filepath="$PROJECT_DIR$/config-service/config-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server/eureka-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/loan-service/loan-service.iml" filepath="$PROJECT_DIR$/loan-service/loan-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-service/gateway-service/gateway-service.iml" filepath="$PROJECT_DIR$/gateway-service/gateway-service/gateway-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/subject-service/loan-service.iml" filepath="$PROJECT_DIR$/subject-service/loan-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/patagoniaTest-main.iml" filepath="$PROJECT_DIR$/.idea/patagoniaTest-main.iml" />
     </modules>
   </component>
