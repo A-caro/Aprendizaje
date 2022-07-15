@@ -13,17 +13,7 @@ public class PatagoniaTestApplication {
     public static void main(String[] args) {
         SpringApplication.run(PatagoniaTestApplication.class, args);
     }
-  /*  @Bean
-    CommandLineRunner run(ClientService employeeService) {
-        return args -> {
-         *//*   employeeService.saveRole(new Role(null, "ROLE_USER"));
-            employeeService.saveRole(new Role(null, "ROLE_ADMINISTRATOR"));
-            employeeService.saveRole(new Role(null, "ROLE_MANAGER"));*//*
 
-
-           employeeService.addRoleToClient("Agustina Fernandez", "ROLE_USER");
-
-        };*/
 
 
 }

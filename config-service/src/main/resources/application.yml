@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          default-label: master
+          default-label: ExamenFinal
           uri: https://github.com/A-caro/Aprendizaje.git
           search-paths: config-data
 
