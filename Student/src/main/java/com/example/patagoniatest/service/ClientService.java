@@ -20,10 +20,8 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 @Slf4j
-public class ClientService implements UserDetailsService {
+public class ClientService  {
 
-    @Autowired
-    RoleRepository roleRepository;
 
     @Autowired
     LoanFeignClient loanFeignClient;
@@ -76,35 +74,6 @@ public class ClientService implements UserDetailsService {
         List<Client> clients  = clientRepository.findAll();
         return clients.stream().map(s -> s.getId() + " , " + s.getFullName() + " , " + s.getIncome()).collect(Collectors.joining("\n"));
     }
-
-
-    @Override
-    public UserDetails loadUserByUsername(String fullName) throws UsernameNotFoundException {
-        Client client = clientRepository.findByFullName(fullName);
-        if(client == null){
-            log.error("Employee not found");
-            throw new UsernameNotFoundException("ERROR! Client not found");
-        }
-        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        client.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
-        return new org.springframework.security.core.userdetails
-                .User(client.getFullName(), client.getPassword(), authorities);
-    }
-
-
-/*    public Role saveRole(Role role){
-        log.info("saving role to the database");
-        return roleRepository.save(role);
-    }
-
-    @Transactional
-    public void addRoleToClient(String fullName, String roleName){
-        log.info("Adding {} role to user: {}", roleName, fullName);
-        Client client = clientRepository.findByFullName(fullName);
-        Role role = roleRepository.findByName(roleName);
-        client.getRoles().add(role);
-    }*/
-
 
 
 

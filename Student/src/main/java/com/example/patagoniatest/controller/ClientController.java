@@ -3,20 +3,17 @@ package com.example.patagoniatest.controller;
 import com.example.patagoniatest.entity.Client;
 import com.example.patagoniatest.model.Loan;
 import com.example.patagoniatest.service.ClientService;
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/clients")
+@RequestMapping("/student")
 public class ClientController {
 
     private final ClientService clientService;
@@ -26,7 +23,6 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @PreAuthorize("hasRole('ADMINISTRATOR')")
     @GetMapping
     public List<Client> getClients(){
         return clientService.getClients();
@@ -58,15 +54,10 @@ public class ClientController {
         return clientService.getDatos();
     }
 
-    @CircuitBreaker(name = "clientCB", fallbackMethod = "fallBackSaveLoan")
     @PostMapping("/saveloan/{clientId}")
     public ResponseEntity<Loan> saveLoan(@PathVariable("clientId") Long clientId, @RequestBody Loan loan) {
         Loan loanNew = clientService.saveLoan(clientId, loan);
         return ResponseEntity.ok(loan);
-    }
-
-    private ResponseEntity<Loan> fallBackSaveLoan(@PathVariable("clientId") Long clientId, @RequestBody Loan loan, RuntimeException exception){
-        return new ResponseEntity("El cliente " + clientId + "  no puede recibir un prestamo()CB",  HttpStatus.OK);
     }
 
 }

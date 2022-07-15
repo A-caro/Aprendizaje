@@ -8,7 +8,6 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "client")
 public class Client {
@@ -18,8 +17,6 @@ public class Client {
     private String fullName;
     private Integer income;
     private String password;
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Role> roles = new ArrayList<>();
 
     public Client(Long id, String fullName, Integer income, String password) {
         this.id = id;
