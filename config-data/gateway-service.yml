@@ -15,11 +15,11 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: clientservice
-          uri: lb://clientservice
+        - id: studentservice
+          uri: lb://studentservice
           predicates:
-            - Path=/clients/**
-        - id:  loanservice
-          uri: lb://loanservice
+            - Path=/student/**
+        - id:  subjectservice
+          uri: lb://subjectservice
           predicates:
-            - Path=/loan/**
+            - Path=/subject/**
