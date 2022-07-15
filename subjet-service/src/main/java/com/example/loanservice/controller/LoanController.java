@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/loan")
+@RequestMapping("/subject")
 public class LoanController {
 
     @Autowired
@@ -26,10 +26,7 @@ public class LoanController {
         return ResponseEntity.ok(loanNew);
     }
 
-    @GetMapping("/{clientId}")
-    public List<Loan> getLoansByClientId(@PathVariable Long clientId){
-        return loanService.getLoansByClientId(clientId);
-    }
+
 
 
 }

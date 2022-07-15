@@ -4,9 +4,7 @@ import com.example.patagoniatest.entity.Client;
 import com.example.patagoniatest.model.Loan;
 import com.example.patagoniatest.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
